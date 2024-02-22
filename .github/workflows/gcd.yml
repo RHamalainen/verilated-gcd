@@ -1,0 +1,9 @@
+name: build top
+on: push
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "test"
+              run: echo "Workflow test"
+
