@@ -4,6 +4,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: "test"
-              run: echo "Workflow test"
-
+            - run: |
+                sudo apt-get update
+                sudo apt-get install iverilog
+                iverilog -o top top.v
+                vvp top
