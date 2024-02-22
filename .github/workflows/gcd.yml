@@ -7,6 +7,7 @@ jobs:
             - uses: actions/checkout@v4
             - run: |
                 sudo apt-get update
-                sudo apt-get install iverilog
-                iverilog -o top top.v
-                vvp top
+                sudo apt-get install verilator
+                verilator -cc --exe top.v sim_main.cpp
+                make -j -C obj_dir -f Vtop.mk
+                ./obj_dir/Vtop
