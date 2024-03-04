@@ -4,25 +4,17 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - run: |
-                sudo apt-get update
-                sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache
-                sudo apt-get install libunwind-dev libgoogle-perftools-dev numactl perl-doc
-                sudo apt-get install libfl2
-                sudo apt-get install libfl-dev
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install Verilator
+              run: |
                 mkdir verilator
                 cd verilator
-                git clone https://github.com/verilator/verilator
-                unset VERILATOR_ROOT
-                cd verilator
-                git pull
-                git checkout stable                
-                autoconf
-                ./configure
-                make -j `nproc`
-                sudo make install
+                touch test.py
+                echo print("Hello, World!") >> test.py
                 cd ..
-                verilator -cc --exe top.v sim_main.cpp
-                make -j -C obj_dir -f Vtop.mk
-                ./obj_dir/Vtop
+            - name: Archive artifacts
+              uses: actions/upload-artifact@c4
+              with:
+                name: test.py
+                path: verilator
