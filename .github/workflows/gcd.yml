@@ -8,3 +8,6 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: verilator-archive
+                github-token: ${{ secrets.GH_PAT }}
+                repository: RHamalainen/verilator-gcd
+                run-id: 8143856439
