@@ -15,4 +15,10 @@ jobs:
             - name: Check Verilator version
               run: |
                 ./verilator/bin/verilator --version
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Build
+              run: |
+                ./verilator/bin/verilator -cc --exe top.v sim_main.cpp
+                make -j -C obj_dir -f Vtop.mk
 
