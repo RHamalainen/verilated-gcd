@@ -25,8 +25,10 @@ jobs:
             - name: Check Verilator version again
               run: |
                 verilator --version
-            - name: Build
+            - name: Build 1
               run: |
                 verilator -cc --exe top.v sim_main.cpp
+            - name: Build 2
+              run: |
                 make -j -C obj_dir -f Vtop.mk
 
