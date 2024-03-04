@@ -1,5 +1,7 @@
 name: build top
 on: [push, workflow_dispatch]
+env:
+    VERILATOR_ROOT: ./verilator
 jobs:
     job:
         runs-on: ubuntu-latest
@@ -19,8 +21,7 @@ jobs:
                 ./verilator/bin/verilator --version  
             - name: Configure Verilator environment variables
               run: |
-                echo "VERILATOR_ROOT=./verilator" >> "$GITHUB_ENV"
-                echo "PATH=$PATH:$VERILATOR_ROOT/bin" >> "$GITHUB_ENV"
+                echo "$VERILATOR_ROOT/bin" >> $GITHUB_PATH
             - name: Check Verilator version again
               run: |
                 verilator --version
