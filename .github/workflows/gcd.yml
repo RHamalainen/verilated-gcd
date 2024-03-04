@@ -20,7 +20,7 @@ jobs:
             - name: Configure Verilator environment variables
               run: |
                 echo "VERILATOR_ROOT=./verilator" >> "$GITHUB_ENV"
-                echo "PATH=$PATH:$VERILATOR_ROOT/bin" >> $GITHUB_ENV"
+                echo "PATH=$PATH:$VERILATOR_ROOT/bin" >> "$GITHUB_ENV"
                 verilator --version
             - name: Build
               run: |
