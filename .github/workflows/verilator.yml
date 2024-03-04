@@ -11,15 +11,18 @@ jobs:
                 sudo apt-get install libunwind-dev libgoogle-perftools-dev numactl perl-doc
                 sudo apt-get install libfl2
                 sudo apt-get install libfl-dev
+            - name: Clone Verilator
+              run: |
                 git clone https://github.com/verilator/verilator
                 cd verilator
                 unset VERILATOR_ROOT
                 git pull
                 git checkout stable
+            - name: Build and install Verilator
+              run: |
                 autoconf
                 ./configure
-                make -j `nproc`
-                sudo make install
+                make --jobs `nproc` --keep-going
                 cd ..
             - name: Compress artifacts
               run: |
