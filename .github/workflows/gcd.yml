@@ -20,6 +20,7 @@ jobs:
             - name: Build
               run: |
                 ls -l
+                unset VERILATOR_ROOT
                 ./verilator/bin/verilator -I="./verilator/include" -cc --exe top.v sim_main.cpp
                 make -j -C obj_dir -f Vtop.mk
 
