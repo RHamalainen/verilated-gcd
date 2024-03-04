@@ -19,8 +19,8 @@ jobs:
                 ./verilator/bin/verilator --version  
             - name: Configure Verilator environment variables
               run: |
-                export VERILATOR_ROOT=./verilator
-                export PATH=$PATH:$VERILATOR_ROOT/bin
+                echo "VERILATOR_ROOT=./verilator" >> "$GITHUB_ENV"
+                echo "PATH=$PATH:$VERILATOR_ROOT/bin" >> $GITHUB_ENV"
                 verilator --version
             - name: Build
               run: |
