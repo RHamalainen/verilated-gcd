@@ -1,13 +1,32 @@
 name: build top
 on: [push, workflow_dispatch]
 jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Cache
+              id: cache
+              uses: actions/cache@v4
+              with:
+                path: test.py
+                key: hashFiles("test.py")
+            - name: Install
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: |
+                touch test.py
+                echo "print(\"Hello, World!\")" >> test.py
+            - name: Test
+              run: |
+                python3 test.py
     run:
         runs-on: ubuntu-latest
         steps:
-            - name: Download artifacts
-              uses: actions/download-artifact@v4
+            - name: Restore cache
+              id: cache-restore
+              uses: actions/cache/restore@v4
               with:
-                name: test.py
+                path: test.py
+                key: hashFiles("test.py")
             - name: Run script
               run: |
                 python3 test.py
