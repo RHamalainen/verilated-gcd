@@ -22,6 +22,6 @@ jobs:
             - name: Build
               run: |
                 ls -l
-                ./verilator/bin/verilator -cc --exe top.v sim_main.cpp
+                ../verilator/bin/verilator -cc --exe top.v sim_main.cpp
                 make -j -C obj_dir -f Vtop.mk
 
