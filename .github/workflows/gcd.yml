@@ -4,6 +4,8 @@ jobs:
     job:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
             - name: Download artifact
               uses: dawidd6/action-download-artifact@v3
               with:
@@ -17,12 +19,9 @@ jobs:
               run: |
                 ./verilator/bin/verilator --version
                 ls -l
-            - name: Checkout repository
-              uses: actions/checkout@v4
             - name: Build
               run: |
-                cd ..
                 ls -l
-                ../verilator/bin/verilator -cc --exe top.v sim_main.cpp
+                ./verilator/bin/verilator -cc --exe top.v sim_main.cpp
                 make -j -C obj_dir -f Vtop.mk
 
