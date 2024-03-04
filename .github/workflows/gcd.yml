@@ -4,12 +4,8 @@ jobs:
     job:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
             - name: Download artifact
-              uses: actions/download-artifact@v4
+              uses: dawidd6/action-download-artifact@v3
               with:
+                workflow: verilator.yml
                 name: verilator-archive
-                github-token: ${{ secrets.GITHUB_TOKEN }}
-                repository: RHamalainen/verilator-gcd
-                run-id: 8143856439
