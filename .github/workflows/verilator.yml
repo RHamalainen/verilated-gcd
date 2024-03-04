@@ -4,13 +4,29 @@ jobs:
     job:
         runs-on: ubuntu-latest
         steps:
-            - name: Install Verilator
+            - name: Install dependencies
               run: |
-                touch test.py
-                echo "print(\"Hello, World!\")" >> test.py
-            - name: Archive artifacts
+                sudo apt-get update
+                sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache
+                sudo apt-get install libunwind-dev libgoogle-perftools-dev numactl perl-doc
+                sudo apt-get install libfl2
+                sudo apt-get install libfl-dev
+                git clone https://github.com/verilator/verilator
+                cd verilator
+                unset VERILATOR_ROOT
+                git pull
+                git checkout stable
+                autoconf
+                ./configure
+                make -j `nproc`
+                sudo make install
+                cd ..
+            - name: Compress artifacts
+              run: |
+                tar --format=posix --create --gzip --file="verilator-archive" verilator
+            - name: Upload artifacts
               uses: actions/upload-artifact@v4
               with:
-                name: test.py
-                path: test.py
+                name: verilator-archive
+                path: verilator-archive
 
