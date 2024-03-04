@@ -11,7 +11,6 @@ jobs:
                 sudo apt-get install libunwind-dev libgoogle-perftools-dev numactl perl-doc
                 sudo apt-get install libfl2
                 sudo apt-get install libfl-dev
-                sudo apt-get install --ignore-missing zlibc zlib1g zlib1g-dev
                 mkdir verilator
                 cd verilator
                 git clone https://github.com/verilator/verilator
