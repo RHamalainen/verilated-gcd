@@ -16,11 +16,14 @@ jobs:
                 tar --extract --gzip --file="verilator-archive"
             - name: Check Verilator version
               run: |
-                ./verilator/bin/verilator --version
+                ./verilator/bin/verilator --version  
+            - name: Configure Verilator environment variables
+              run: |
+                export VERILATOR_ROOT=./verilator
+                export PATH=$PATH:$VERILATOR_ROOT/bin
+                verilator --version
             - name: Build
               run: |
-                ls -l
-                unset VERILATOR_ROOT
-                ./verilator/bin/verilator -I="./verilator/include" -cc --exe top.v sim_main.cpp
+                verilator -cc --exe top.v sim_main.cpp
                 make -j -C obj_dir -f Vtop.mk
 
