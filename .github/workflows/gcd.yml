@@ -11,7 +11,7 @@ jobs:
                 path: test.py
                 key: hashFiles("test.py")
             - name: Install
-              if: steps.cache.outputs.cache-hit != 'true'
+              if: ${{ steps.cache.outputs.cache-hit != 'true' }}
               run: |
                 touch test.py
                 echo "print(\"Hello, World!\")" >> test.py
