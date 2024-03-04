@@ -9,5 +9,5 @@ jobs:
               with:
                 name: verilator-archive
                 github-token: ${{ secrets.GITHUB_TOKEN }}
-                repository: actions/toolkit
+                repository: RHamalainen/verilator-gcd
                 run-id: 8143856439
