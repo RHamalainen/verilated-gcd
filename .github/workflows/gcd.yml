@@ -9,3 +9,10 @@ jobs:
               with:
                 workflow: verilator.yml
                 name: verilator-archive
+            - name: Decompress artifact
+              run: |
+                tar --extract --gzip --file="verilator-archive"
+            - name: Check Verilator version
+              run: |
+                ./verilator/bin/verilator --version
+
