@@ -26,7 +26,7 @@ jobs:
               uses: actions/cache/restore@v4
               with:
                 path: test.py
-                key: hashFiles("test.py")
+                key: test.py
             - name: Run script
               run: |
                 python3 test.py
