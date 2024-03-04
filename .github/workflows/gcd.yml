@@ -8,8 +8,8 @@ jobs:
               run: |
                 touch test.py
                 echo "print(\"Hello, World!\")" >> test.py
-            - name: Cache
-              id: cache
+            - name: Save to cache
+              id: cache-save
               uses: actions/cache@v4
               with:
                 path: test.py
@@ -20,12 +20,12 @@ jobs:
     run:
         runs-on: ubuntu-latest
         steps:
-            - name: Restore cache
-              id: cache-restore
-              uses: actions/cache/restore@v4
+            - name: Load from cache
+              id: cache-load
+              uses: actions/cache@v4
               with:
                 path: test.py
-                key: test.py
+                key: hashFiles("test.py")
             - name: Run script
               run: |
                 python3 test.py
