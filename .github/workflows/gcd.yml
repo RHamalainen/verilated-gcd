@@ -12,13 +12,16 @@ jobs:
             - name: Decompress artifact
               run: |
                 tar --extract --gzip --file="verilator-archive"
+                ls -l
             - name: Check Verilator version
               run: |
                 ./verilator/bin/verilator --version
+                ls -l
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Build
               run: |
+                ls -l
                 ./verilator/bin/verilator -cc --exe top.v sim_main.cpp
                 make -j -C obj_dir -f Vtop.mk
 
