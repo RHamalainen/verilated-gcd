@@ -4,17 +4,16 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            - name: Install
+              run: |
+                touch test.py
+                echo "print(\"Hello, World!\")" >> test.py
             - name: Cache
               id: cache
               uses: actions/cache@v4
               with:
                 path: test.py
                 key: hashFiles("test.py")
-            - name: Install
-              if: ${{ steps.cache.outputs.cache-hit != 'true' }}
-              run: |
-                touch test.py
-                echo "print(\"Hello, World!\")" >> test.py
             - name: Test
               run: |
                 python3 test.py
