@@ -1,31 +1,10 @@
 name: build top
 on: [push, workflow_dispatch]
 jobs:
-    build:
+    job:
         runs-on: ubuntu-latest
         steps:
-            - name: Install
-              run: |
-                touch test.py
-                echo "print(\"Hello, World!\")" >> test.py
-            - name: Save to cache
-              id: cache-save
-              uses: actions/cache@v4
+            - name: Download artifact
+              uses: actions/download-artifact@v4
               with:
-                path: test.py
-                key: hashFiles("test.py")
-            - name: Test
-              run: |
-                python3 test.py
-    run:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Load from cache
-              id: cache-load
-              uses: actions/cache@v4
-              with:
-                path: test.py
-                key: hashFiles("test.py")
-            - name: Run script
-              run: |
-                python3 test.py
+                name: verilator-archive
