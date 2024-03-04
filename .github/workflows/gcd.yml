@@ -21,6 +21,8 @@ jobs:
               run: |
                 echo "VERILATOR_ROOT=./verilator" >> "$GITHUB_ENV"
                 echo "PATH=$PATH:$VERILATOR_ROOT/bin" >> "$GITHUB_ENV"
+            - name: Check Verilator version again
+              run: |
                 verilator --version
             - name: Build
               run: |
