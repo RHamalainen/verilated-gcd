@@ -1,4 +1,4 @@
-name: build top
+name: Build and run simulation
 on: [push, workflow_dispatch]
 env:
     VERILATOR_ROOT: ./verilator
@@ -15,20 +15,25 @@ jobs:
                 name: verilator-archive
             - name: Decompress artifact
               run: |
+                echo "$PWD"  
                 tar --extract --gzip --file="verilator-archive"
             - name: Check Verilator version
               run: |
+                echo "$PWD"  
                 ./verilator/bin/verilator --version  
             - name: Configure Verilator environment variables
               run: |
+                echo "$PWD"
                 echo "$VERILATOR_ROOT/bin" >> $GITHUB_PATH
             - name: Check Verilator version again
               run: |
+                echo "$PWD"
                 verilator --version
             - name: Build 1
               run: |
+                echo "$PWD"
                 verilator -cc --exe top.v sim_main.cpp
             - name: Build 2
               run: |
+                echo "$PWD"
                 make -j -C obj_dir -f Vtop.mk
-
