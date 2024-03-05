@@ -34,8 +34,10 @@ jobs:
             - name: Build 1
               run: |
                 echo "$PWD"
+                echo "$VERILATOR_ROOT"
                 verilator -cc --exe top.v sim_main.cpp
             - name: Build 2
               run: |
                 echo "$PWD"
+                echo "$VERILATOR_ROOT"
                 make -j -C obj_dir -f Vtop.mk
