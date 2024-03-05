@@ -8,6 +8,7 @@ jobs:
         steps:
             - name: Install dependencies
               run: |
+                echo "$PWD"
                 sudo apt-get update
                 sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache
                 sudo apt-get install libunwind-dev libgoogle-perftools-dev numactl perl-doc
@@ -15,12 +16,14 @@ jobs:
                 sudo apt-get install libfl-dev
             - name: Clone Verilator
               run: |
+                echo "$PWD"
                 git clone https://github.com/verilator/verilator
                 cd verilator
                 git pull
                 git checkout stable
             - name: Build and install Verilator
               run: |
+                echo "$PWD"
                 ls -l
                 autoconf
                 ./configure
@@ -28,6 +31,7 @@ jobs:
                 cd ..
             - name: Compress artifacts
               run: |
+                echo "$PWD"  
                 tar --format=posix --create --gzip --file="verilator-archive" verilator
             - name: Upload artifacts
               uses: actions/upload-artifact@v4
