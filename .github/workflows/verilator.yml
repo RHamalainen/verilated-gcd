@@ -21,6 +21,7 @@ jobs:
                 git checkout stable
             - name: Build and install Verilator
               run: |
+                ls -l
                 autoconf
                 ./configure
                 make --jobs `nproc` --keep-going
