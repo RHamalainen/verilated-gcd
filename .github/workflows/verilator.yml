@@ -15,12 +15,13 @@ jobs:
               run: |
                 git clone https://github.com/verilator/verilator
                 cd verilator
-                unset VERILATOR_ROOT
                 git pull
                 git checkout stable
             - name: Build and install Verilator
               run: |
+                unset VERILATOR_ROOT
                 autoconf
+                export VERILATOR_ROOT=`pwd`
                 ./configure
                 make --jobs `nproc` --keep-going
                 cd ..
