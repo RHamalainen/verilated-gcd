@@ -23,14 +23,15 @@ jobs:
                 git checkout stable
             - name: Build and install Verilator
               run: |
+                cd verilator
                 echo "$PWD"
                 ls -l
                 autoconf
                 ./configure
                 make --jobs `nproc` --keep-going
-                cd ..
             - name: Compress artifacts
               run: |
+                cd verilator
                 echo "$PWD"  
                 tar --format=posix --create --gzip --file="verilator-archive" verilator
             - name: Upload artifacts
