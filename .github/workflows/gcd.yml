@@ -29,6 +29,7 @@ jobs:
             - name: Check Verilator version again
               run: |
                 echo "$PWD"
+                echo "$PATH"
                 verilator --version
             - name: Build 1
               run: |
