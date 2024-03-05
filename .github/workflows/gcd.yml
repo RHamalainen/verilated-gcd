@@ -1,7 +1,7 @@
 name: Build and run simulation
 on: [push, workflow_dispatch]
 env:
-    VERILATOR_ROOT: ./verilator
+    VERILATOR_ROOT: /home/runner/work/verilated-gcd/verilated-gcd/verilator
 jobs:
     job:
         runs-on: ubuntu-latest
