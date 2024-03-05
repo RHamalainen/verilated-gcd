@@ -38,4 +38,3 @@ jobs:
               with:
                 name: verilator-archive
                 path: verilator-archive
-
