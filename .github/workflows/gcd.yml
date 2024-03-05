@@ -45,3 +45,6 @@ jobs:
                 echo "$PWD"
                 echo "$VERILATOR_ROOT"
                 make -j -C obj_dir -f Vtop.mk
+            - name: Run
+              run: |
+                ./obj_dir/Vtop
