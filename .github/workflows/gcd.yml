@@ -6,6 +6,10 @@ jobs:
     job:
         runs-on: ubuntu-latest
         steps:
+            - name: Install dependencies
+              run: |
+                sudo apt-get update
+                sudo apt-get install ccache, mold
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Download artifact
