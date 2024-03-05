@@ -31,7 +31,6 @@ jobs:
                 make --jobs `nproc` --keep-going
             - name: Compress artifacts
               run: |
-                cd verilator
                 echo "$PWD"  
                 tar --format=posix --create --gzip --file="verilator-archive" verilator
             - name: Upload artifacts
