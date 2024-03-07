@@ -19,3 +19,6 @@ trace:
 	verilator -cc --exe --trace top.v sim_main.cpp
 	make -j -C obj_dir -f Vtop.mk
 	./obj_dir/Vtop +trace
+
+yosys:
+	yosys -s yosys.txt
