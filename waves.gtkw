@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Wed Mar  6 19:42:46 2024
+[*]
+[dumpfile] "/home/roni/work/verilated-gcd/logs/vlt_dump.vcd"
+[dumpfile_mtime] "Wed Mar  6 19:40:15 2024"
+[dumpfile_size] 5390
+[savefile] "/home/roni/work/verilated-gcd/waves.gtkw"
+[timestart] 1
+[size] 1685 1376
+[pos] -1 -1
+*-4.072179 26 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[sst_width] 233
+[signals_width] 210
+[sst_expanded] 1
+[sst_vpaned_height] 516
+@28
+TOP.top.gcd.rst
+TOP.top.gcd.clk
+TOP.top.gcd.ena
+@24
+TOP.top.gcd.state_next[31:0]
+TOP.top.gcd.state[31:0]
+@22
+TOP.top.gcd.in1[3:0]
+TOP.top.gcd.in2[3:0]
+TOP.top.gcd.r_in1_next[3:0]
+TOP.top.gcd.r_in2_next[3:0]
+TOP.top.gcd.r_in1[3:0]
+TOP.top.gcd.r_in2[3:0]
+TOP.top.gcd.out[3:0]
+@28
+TOP.top.gcd.rdy
+@420
+TOP.top.gcd.in1_minus_in2[3:0]
+TOP.top.gcd.in2_minus_in1[3:0]
+@29
+TOP.top.gcd.in1_equal_to_in2
+TOP.top.gcd.in1_greater_than_in2
+TOP.top.gcd.in2_greater_than_in1
+[pattern_trace] 1
+[pattern_trace] 0
