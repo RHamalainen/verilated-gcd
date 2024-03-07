@@ -45,7 +45,7 @@ module gcd (
     // state register
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            $display("async reset ", `__FILE__);
+            // $display("async reset ", `__FILE__);
             // asynchronous reset
             state <= idle;
             r_in1 <= 0;
