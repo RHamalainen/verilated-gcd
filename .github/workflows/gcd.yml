@@ -35,6 +35,10 @@ jobs:
                 echo "$PWD"
                 echo "$PATH"
                 verilator --version
+            - name: Generate testcases
+              run: |
+                echo "$PWD"
+                python3 create_testcases.py
             - name: Build 1
               run: |
                 echo "$PWD"
