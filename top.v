@@ -1,4 +1,8 @@
+`ifdef verilator
+module top (
+`else
 module design (
+`endif
         input clk,
         input rst,
         input [3:0] in1,
