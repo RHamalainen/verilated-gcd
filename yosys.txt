@@ -1,4 +1,5 @@
-read_verilog -sv *.v
+read_verilog -sv top.v
+read_verilog -sv gcd.v
 hierarchy
 proc
 opt
