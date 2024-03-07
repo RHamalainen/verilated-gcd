@@ -1,4 +1,4 @@
-module top (
+module design (
         input clk,
         input rst,
         input [3:0] in1,
@@ -10,7 +10,7 @@ module top (
     gcd gcd(.clk, .rst, .in1, .in2, .ena, .out, .rdy);
 
     initial begin
-        $display("hello from ", `__FILE__);
+        //$display("hello from ", `__FILE__);
         //$finish;
     end
 endmodule
